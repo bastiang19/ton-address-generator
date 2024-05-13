@@ -17,7 +17,7 @@ async function main() {
             let keyPair = await mnemonicToPrivateKey(mnemonics);
             let workchain = 0;
             let wallet = WalletContractV4.create({ workchain, publicKey: keyPair.publicKey });
-            let address = wallet.address.toString({ bounceable: searchUnBouncable }).toLowerCase();
+            let address = wallet.address.toString({ bounceable: searchBouncable }).toLowerCase();
 
             if (desiredEndings.some(ending => address.endsWith(ending))) {
                 console.log("Secret Key:", keyPair.secretKey.toString('hex'));
